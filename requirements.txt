@@ -1,0 +1,4 @@
+influxdb-client
+pyserial
+RPi.GPIO
+pyyaml
