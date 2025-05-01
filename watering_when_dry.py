@@ -6,15 +6,35 @@ the sensor values, and turns on or off a pump and LEDs based on the readings.
 """
 import serial
 import time
-import ast
+import json
 import RPi.GPIO as GPIO
 from time import sleep
 import yaml
 
 
 def convert_to_nested_dict(input_str):
-    # Use ast.literal_eval to safely evaluate the string as a Python literal
-    nested_dict = ast.literal_eval(input_str)
+    """
+    Converts a string representation of a nested dictionary into an actual nested
+    dictionary. This function replaces single quotes in the input string with double
+    quotes to ensure it adheres to JSON format, then uses `json.loads` to parse the
+    string into a dictionary.
+    Parameters
+    ----------
+    input_str : str
+        A string representation of a nested dictionary. The string must use single
+        quotes for keys and values.
+    Returns
+    -------
+    dict
+        A nested dictionary parsed from the input string.
+    Raises
+    ------
+    json.JSONDecodeError
+        If the input string is not a valid JSON format after replacing single quotes
+        with double quotes.
+    """
+    input_str = input_str.replace("'", '"')
+    nested_dict = json.loads(input_str)
     return nested_dict
 
 def check_humidity(sensor_data):
@@ -71,13 +91,13 @@ def main():
                 # Check if the pump is needed for any sensor
                 if any(pump_needed.values()) and pump_rly_status==1:
                     pump_rly_status = 0
-                    GPIO.output(rlys["rly_3"], pump_rly_status)
+                    # GPIO.output(rlys["rly_3"], pump_rly_status)
                 elif not any(pump_needed.values()) and pump_rly_status==0:
                     # If no sensor needs the pump, turn it off
                     # but only if it was on
                     # and the pump relay is on
                     pump_rly_status = 1
-                    GPIO.output(rlys["rly_3"], pump_rly_status)
+                    # GPIO.output(rlys["rly_3"], pump_rly_status)
 
 
             # Wait for a short period before the next reading

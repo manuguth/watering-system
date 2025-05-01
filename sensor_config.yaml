@@ -1,18 +1,32 @@
 sensor_1:
   name: "Soil moisture Sensor - Water"
+  val_air: 420
+  val_water: 195
   gpio_relay: 16
   threshold: 50
   gpio_pump: 21
   pump_time: 5
 sensor_2:
   name: "Soil moisture Sensor - Water 2"
+  val_air: 420
+  val_water: 195
   gpio_relay: 20
   threshold: 50
   gpio_pump: 21
   pump_time: 5
 sensor_3:
   name: "Soil moisture Sensor - Potting soil"
+  val_air: 420
+  val_water: 195
   gpio_relay: 4
-  threshold: 20
+  threshold: 50
   gpio_pump: 21
   pump_time: 5
+# sensor_4:
+#   name: "Soil moisture Sensor - Water 4"
+#   val_air: 420
+#   val_water: 195
+#   gpio_relay: null
+#   threshold: 20
+#   gpio_pump: 21
+#   pump_time: 5
