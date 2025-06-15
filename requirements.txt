@@ -3,3 +3,4 @@ influxdb
 pyserial
 RPi.GPIO
 pyyaml
+gpiozero
