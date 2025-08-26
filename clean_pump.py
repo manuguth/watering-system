@@ -18,31 +18,30 @@ GPIO.output(rly_3, 1)
 GPIO.output(rly_4, 1)
 GPIO.output(rly_5, 0)
 
-sleep(10)
+# sleep(10)
 try:
     GPIO.output(rly_5, 1)  # Turn on the pump
-    sleep(3)
-    # GPIO.output(rly_1, 0)
-    GPIO.output(rly_4, 0)
-    sleep(15)
-    # GPIO.output(rly_1, 1)
-    GPIO.output(rly_4, 1)
-    GPIO.output(rly_2, 0)
+    # sleep(3)
+    while True:
+        # GPIO.output(rly_1, 0)
+        # GPIO.output(rly_1, 1)
+        # GPIO.output(rly_3, 1)
 
-    sleep(15)
-    GPIO.output(rly_2, 1)
-    GPIO.output(rly_1, 0)
+        # GPIO.output(rly_4, 0)
+        # GPIO.output(rly_2, 0)
 
-    sleep(15)
-    GPIO.output(rly_1, 1)
-    GPIO.output(rly_3, 0)
-    sleep(10)
-    GPIO.output(rly_3, 1)
+        # sleep(30)
+        # # GPIO.output(rly_1, 1)
+        # GPIO.output(rly_4, 1)
+        # GPIO.output(rly_2, 1)
 
-    GPIO.output(rly_5, 0)  # Turn off the pump
-    sleep(15)
+        # GPIO.output(rly_1, 0)
+        # GPIO.output(rly_3, 0)
+
+        sleep(30)
+
+    # GPIO.output(rly_5, 0)  # Turn off the pump
 except KeyboardInterrupt:          # trap a CTRL+C keyboard interrupt
     GPIO.cleanup()
-GPIO.cleanup()
 
 

@@ -4,3 +4,4 @@ pyserial
 RPi.GPIO
 pyyaml
 gpiozero
+crate
